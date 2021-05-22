@@ -32,7 +32,7 @@
  */
 package com.oracle.javafx.scenebuilder.app.preferences;
 
-import com.oracle.javafx.scenebuilder.app.SceneBuilderApp;
+import com.oracle.javafx.scenebuilder.app.MartianApp;
 import com.oracle.javafx.scenebuilder.kit.ToolTheme;
 import com.oracle.javafx.scenebuilder.app.i18n.I18N;
 
@@ -173,7 +173,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(ROOT_CONTAINER_HEIGHT);
             // Update UI
 //            recordGlobal.refreshRootContainerHeight();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshRootContainerHeight(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshRootContainerHeight(recordGlobal));
         });
         rootContainerWidth.setText(String.valueOf(recordGlobal.getRootContainerWidth()));
         rootContainerWidth.setOnAction(t -> {
@@ -184,7 +184,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(ROOT_CONTAINER_WIDTH);
             // Update UI
 //            recordGlobal.refreshRootContainerWidth();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshRootContainerWidth(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshRootContainerWidth(recordGlobal));
         });
 
         // Background image
@@ -350,7 +350,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(BACKGROUND_IMAGE);
             // Update UI
 //            recordGlobal.refreshBackgroundImage();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshBackgroundImage(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshBackgroundImage(recordGlobal));
         }
     }
 
@@ -368,7 +368,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(TOOL_THEME);
             // Update UI
 //            recordGlobal.refreshToolTheme();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshToolTheme(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshToolTheme(recordGlobal));
         }
     }
 
@@ -385,7 +385,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(LIBRARY_DISPLAY_OPTION);
             // Update UI
 //            recordGlobal.refreshLibraryDisplayOption();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshLibraryDisplayOption(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshLibraryDisplayOption(recordGlobal));
         }
     }
 
@@ -403,7 +403,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(HIERARCHY_DISPLAY_OPTION);
             // Update UI
 //            recordGlobal.refreshHierarchyDisplayOption();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshHierarchyDisplayOption(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshHierarchyDisplayOption(recordGlobal));
         }
     }
 
@@ -421,7 +421,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(CSS_TABLE_COLUMNS_ORDERING_REVERSED);
             // Update UI
 //            recordGlobal.refreshCSSAnalyzerColumnsOrder();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshCssTableColumnsOrderingReversed(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshCssTableColumnsOrderingReversed(recordGlobal));
         }
     }
 
@@ -437,7 +437,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(THEME);
             // Update UI
 //            recordGlobal.refreshTheme();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshTheme(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshTheme(recordGlobal));
         }
     }
 
@@ -453,7 +453,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(GLUON_SWATCH);
             // Update UI
 //            recordGlobal.refreshSwatch();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshSwatch(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshSwatch(recordGlobal));
         }
     }
 
@@ -469,7 +469,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(GLUON_THEME);
             // Update UI
 //            recordGlobal.refreshGluonTheme();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshGluonTheme(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshGluonTheme(recordGlobal));
         }
     }
 
@@ -509,7 +509,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(ALIGNMENT_GUIDES_COLOR);
             // Update UI
 //            recordGlobal.refreshAlignmentGuidesColor();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshAlignmentGuidesColor(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshAlignmentGuidesColor(recordGlobal));
             graphic.setFill(newValue);
         }
     }
@@ -534,7 +534,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.writeToJavaPreferences(PARENT_RING_COLOR);
             // Update UI
 //            recordGlobal.refreshParentRingColor();
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.refreshParentRingColor(recordGlobal));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.refreshParentRingColor(recordGlobal));
             graphic.setFill(newValue);
         }
     }
@@ -559,7 +559,7 @@ public class PreferencesWindowController extends AbstractFxmlWindowController {
             recordGlobal.setAccordionAnimation(newValue);
             recordGlobal.writeToJavaPreferences(ACCORDION_ANIMATION);
             // Update UI
-            SceneBuilderApp.applyToAllDocumentWindows(dwc -> dwc.animateAccordion(newValue));
+            MartianApp.applyToAllDocumentWindows(dwc -> dwc.animateAccordion(newValue));
         }
     }
 

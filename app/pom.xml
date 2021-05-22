@@ -11,7 +11,7 @@
     </parent>
 
     <properties>
-        <main.class.name>com.oracle.javafx.scenebuilder.app.SceneBuilderApp</main.class.name>
+        <main.class.name>com.oracle.javafx.scenebuilder.app.MartianApp</main.class.name>
         <!-- For about.properties file -->
         <buildDate>${maven.build.timestamp}</buildDate>
         <javaVersion>${java.vm.version}, ${java.vendor}</javaVersion>

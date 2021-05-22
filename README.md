@@ -65,7 +65,7 @@ java
 --add-modules javafx.web,javafx.fxml,javafx.swing,javafx.media \
 --add-opens=javafx.fxml/javafx.fxml=ALL-UNNAMED \
 -cp app/target/lib/scenebuilder-$version.jar \
-com.oracle.javafx.scenebuilder.app.SceneBuilderApp
+com.oracle.javafx.scenebuilder.app.MartianApp
 ```
 
 ## Scene Builder Kit ##

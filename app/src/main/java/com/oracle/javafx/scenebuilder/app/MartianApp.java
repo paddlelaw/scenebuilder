@@ -94,7 +94,7 @@ import javafx.stage.Stage;
 /**
  *
  */
-public class SceneBuilderApp extends Application implements AppPlatform.AppNotificationHandler {
+public class MartianApp extends Application implements AppPlatform.AppNotificationHandler {
 
     public enum ApplicationControlAction {
 
@@ -111,7 +111,7 @@ public class SceneBuilderApp extends Application implements AppPlatform.AppNotif
         EXIT
     }
 
-    private static SceneBuilderApp singleton;
+    private static MartianApp singleton;
     private static String darkToolStylesheet;
     private static final CountDownLatch launchLatch = new CountDownLatch(1);
 
@@ -123,11 +123,11 @@ public class SceneBuilderApp extends Application implements AppPlatform.AppNotif
     /*
      * Public
      */
-    public static SceneBuilderApp getSingleton() {
+    public static MartianApp getSingleton() {
         return singleton;
     }
 
-    public SceneBuilderApp() {
+    public MartianApp() {
         assert singleton == null;
         singleton = this;
 
@@ -405,10 +405,10 @@ public class SceneBuilderApp extends Application implements AppPlatform.AppNotif
             }
             if (shouldShowImportGluonJarAlert) {
                 Platform.runLater(() -> {
-                    SceneBuilderApp sceneBuilderApp = SceneBuilderApp.getSingleton();
-                    DocumentWindowController dwc = sceneBuilderApp.getFrontDocumentWindow();
+                    MartianApp martianApp = MartianApp.getSingleton();
+                    DocumentWindowController dwc = martianApp.getFrontDocumentWindow();
                     if (dwc == null) {
-                        dwc = sceneBuilderApp.getDocumentWindowControllers().get(0);
+                        dwc = martianApp.getDocumentWindowControllers().get(0);
                     }
                     ImportingGluonControlsAlert alert = new ImportingGluonControlsAlert(dwc.getStage());
                     AppSettings.setWindowIcon(alert);

@@ -316,7 +316,7 @@ public class DocumentWindowController extends AbstractFxmlWindowController {
     public DocumentWindowController() {
         super(DocumentWindowController.class.getResource("DocumentWindow.fxml"), //NOI18N
                 I18N.getBundle(), false); // sizeToScene = false because sizing is defined in preferences
-        editorController.setLibrary(SceneBuilderApp.getSingleton().getUserLibrary());
+        editorController.setLibrary(MartianApp.getSingleton().getUserLibrary());
     }
     
     public EditorController getEditorController() {
@@ -493,14 +493,14 @@ public class DocumentWindowController extends AbstractFxmlWindowController {
     }
 
     public void refreshToolTheme(PreferencesRecordGlobal preferences) {
-        final SceneBuilderApp app = SceneBuilderApp.getSingleton();
-        final SceneBuilderApp.ApplicationControlAction aca;
+        final MartianApp app = MartianApp.getSingleton();
+        final MartianApp.ApplicationControlAction aca;
         switch(preferences.getToolTheme()) {
             case DEFAULT:
-                aca = SceneBuilderApp.ApplicationControlAction.USE_DEFAULT_THEME;
+                aca = MartianApp.ApplicationControlAction.USE_DEFAULT_THEME;
                 break;
             case DARK:
-                aca = SceneBuilderApp.ApplicationControlAction.USE_DARK_THEME;
+                aca = MartianApp.ApplicationControlAction.USE_DARK_THEME;
                 break;
             default:
                 assert false;
@@ -1151,9 +1151,9 @@ public class DocumentWindowController extends AbstractFxmlWindowController {
         
         libraryLabel.textProperty().bind(Bindings.createStringBinding(() -> {
 
-            return SceneBuilderApp.getSingleton().getUserLibrary().isExploring() ? I18N.getString("library.exploring") : I18N.getString("library");
+            return MartianApp.getSingleton().getUserLibrary().isExploring() ? I18N.getString("library.exploring") : I18N.getString("library");
 
-        }, SceneBuilderApp.getSingleton().getUserLibrary().exploringProperty()));
+        }, MartianApp.getSingleton().getUserLibrary().exploringProperty()));
     }
 
     @Override
@@ -1349,10 +1349,10 @@ public class DocumentWindowController extends AbstractFxmlWindowController {
                     AppSettings.getTempM2Repository(), PreferencesController.getSingleton(), getStage());
             libraryDialogController.setOnAddJar(() -> onImportJarFxml(libraryDialogController.getStage()));
             libraryDialogController.setOnEditFXML(fxmlPath -> {
-                    if (SceneBuilderApp.getSingleton().lookupUnusedDocumentWindowController() != null) {
+                    if (MartianApp.getSingleton().lookupUnusedDocumentWindowController() != null) {
                         libraryDialogController.closeWindow();
                     }
-                    SceneBuilderApp.getSingleton().performOpenRecent(this,
+                    MartianApp.getSingleton().performOpenRecent(this,
                             fxmlPath.toFile());
             });
             libraryDialogController.setOnAddFolder(() -> onImportFromFolder(libraryDialogController.getStage()));
@@ -1990,7 +1990,7 @@ public class DocumentWindowController extends AbstractFxmlWindowController {
                 
                 // Checks if fxmlFile is the name of an already opened document
                 final DocumentWindowController dwc
-                        = SceneBuilderApp.getSingleton().lookupDocumentWindowControllers(newLocation);
+                        = MartianApp.getSingleton().lookupDocumentWindowControllers(newLocation);
                 if (dwc != null && dwc != this) {
                     final Path fxmlPath = Paths.get(fxmlFile.toString());
                     final String fileName = fxmlPath.getFileName().toString();
@@ -2057,7 +2057,7 @@ public class DocumentWindowController extends AbstractFxmlWindowController {
                 errorDialog.setDebugInfoWithThrowable(x);
                 errorDialog.setTitle(I18N.getString("alert.title.open"));
                 errorDialog.showAndWait();
-                SceneBuilderApp.getSingleton().documentWindowRequestClose(this);
+                MartianApp.getSingleton().documentWindowRequestClose(this);
             }
         }
     }
@@ -2112,7 +2112,7 @@ public class DocumentWindowController extends AbstractFxmlWindowController {
         
         // Closes if confirmed
         if (closeConfirmed) {
-            SceneBuilderApp.getSingleton().documentWindowRequestClose(this);
+            MartianApp.getSingleton().documentWindowRequestClose(this);
             
             // Write java preferences at close time
             updatePreferences();

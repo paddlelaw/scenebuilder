@@ -35,8 +35,8 @@ package com.oracle.javafx.scenebuilder.app.menubar;
 import com.oracle.javafx.scenebuilder.app.DocumentWindowController;
 import com.oracle.javafx.scenebuilder.app.DocumentWindowController.DocumentControlAction;
 import com.oracle.javafx.scenebuilder.app.DocumentWindowController.DocumentEditAction;
-import com.oracle.javafx.scenebuilder.app.SceneBuilderApp;
-import com.oracle.javafx.scenebuilder.app.SceneBuilderApp.ApplicationControlAction;
+import com.oracle.javafx.scenebuilder.app.MartianApp;
+import com.oracle.javafx.scenebuilder.app.MartianApp.ApplicationControlAction;
 import com.oracle.javafx.scenebuilder.app.i18n.I18N;
 import com.oracle.javafx.scenebuilder.app.preferences.PreferencesController;
 import com.oracle.javafx.scenebuilder.app.preferences.PreferencesRecordGlobal;
@@ -1318,7 +1318,7 @@ public class MenuBarController {
                     }
                     mi.setOnAction(t -> {
                         final File file = new File(recentItem);
-                        SceneBuilderApp.getSingleton().performOpenRecent(documentWindowController, file);
+                        MartianApp.getSingleton().performOpenRecent(documentWindowController, file);
                     });
                     mi.setMnemonicParsing(false);
                     menuItems.add(mi);
@@ -1522,7 +1522,7 @@ public class MenuBarController {
         windowMenu.getItems().clear();
 
         final List<DocumentWindowController> documentWindowControllers
-                = SceneBuilderApp.getSingleton().getDocumentWindowControllers();
+                = MartianApp.getSingleton().getDocumentWindowControllers();
         if (documentWindowControllers.isEmpty()) {
             // Adds the "No window" menu item
             windowMenu.getItems().add(makeWindowMenuItem(null));
@@ -1769,13 +1769,13 @@ public class MenuBarController {
 
         @Override
         public boolean canPerform() {
-            return SceneBuilderApp.getSingleton().canPerformControlAction(controlAction,
+            return MartianApp.getSingleton().canPerformControlAction(controlAction,
                     documentWindowController);
         }
 
         @Override
         public void perform() {
-            SceneBuilderApp.getSingleton().performControlAction(controlAction,
+            MartianApp.getSingleton().performControlAction(controlAction,
                     documentWindowController);
         }
 

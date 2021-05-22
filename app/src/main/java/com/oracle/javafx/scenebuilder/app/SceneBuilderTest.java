@@ -87,7 +87,7 @@ public class SceneBuilderTest {
      */
     public static Scene newFxmlFile() {
         final DocumentWindowController newWindow 
-                = SceneBuilderApp.getSingleton().makeNewWindow();
+                = MartianApp.getSingleton().makeNewWindow();
         newWindow.openWindow();
         return newWindow.getScene();
     }
@@ -105,7 +105,7 @@ public class SceneBuilderTest {
         assert fxmlFile != null;
         
         final DocumentWindowController newWindow 
-                = SceneBuilderApp.getSingleton().makeNewWindow();
+                = MartianApp.getSingleton().makeNewWindow();
         newWindow.loadFromFile(fxmlFile);
         newWindow.openWindow();
         return newWindow.getScene();
@@ -408,10 +408,10 @@ public class SceneBuilderTest {
      * Starts the application in test mode.
      * In this mode, no files are opened at application startup.
      * 
-     * @param args arguments to SceneBuilderApp.main()
+     * @param args arguments to MartianApp.main()
      */
     public static void startApplication(String[] args) {
-        SceneBuilderApp.main(args);
+        MartianApp.main(args);
     }
     
     /*
@@ -434,7 +434,7 @@ public class SceneBuilderTest {
     private static DocumentWindowController lookupWindowController(Scene documentScene) {
         DocumentWindowController result = null;
         
-        final SceneBuilderApp app = SceneBuilderApp.getSingleton();
+        final MartianApp app = MartianApp.getSingleton();
         for (DocumentWindowController c : app.getDocumentWindowControllers()) {
             if (c.getScene() == documentScene) {
                 result = c;

@@ -53,7 +53,7 @@ public class I18N {
     public static synchronized ResourceBundle getBundle() {
         if (bundle == null) {
             final String packageName = I18N.class.getPackage().getName();
-            bundle = ResourceBundle.getBundle(packageName + ".SceneBuilderApp",utf8EncodingControl); //NOI18N
+            bundle = ResourceBundle.getBundle(packageName + ".MartianApp",utf8EncodingControl); //NOI18N
         }
 
         return bundle;

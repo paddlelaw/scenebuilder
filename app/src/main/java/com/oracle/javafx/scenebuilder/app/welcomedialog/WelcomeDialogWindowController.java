@@ -33,7 +33,7 @@
 package com.oracle.javafx.scenebuilder.app.welcomedialog;
 
 import com.oracle.javafx.scenebuilder.app.DocumentWindowController;
-import com.oracle.javafx.scenebuilder.app.SceneBuilderApp;
+import com.oracle.javafx.scenebuilder.app.MartianApp;
 import com.oracle.javafx.scenebuilder.app.i18n.I18N;
 import com.oracle.javafx.scenebuilder.app.preferences.PreferencesController;
 import com.oracle.javafx.scenebuilder.app.preferences.PreferencesRecordGlobal;
@@ -67,14 +67,14 @@ public class WelcomeDialogWindowController extends TemplatesBaseWindowController
 
     private static WelcomeDialogWindowController instance;
 
-    private SceneBuilderApp sceneBuilderApp;
+    private MartianApp martianApp;
 
     private WelcomeDialogWindowController() {
         super(WelcomeDialogWindowController.class.getResource("WelcomeWindow.fxml"), //NOI18N
                 I18N.getBundle(),
                 null); // We want it to be a top level window so we're setting the owner to null.
 
-        sceneBuilderApp = SceneBuilderApp.getSingleton();
+        martianApp = MartianApp.getSingleton();
     }
 
 
@@ -129,7 +129,7 @@ public class WelcomeDialogWindowController extends TemplatesBaseWindowController
 
         emptyApp.setUserData(Template.EMPTY_APP);
 
-        setOnTemplateChosen(sceneBuilderApp::performNewTemplate);
+        setOnTemplateChosen(martianApp::performNewTemplate);
         setupTemplateButtonHandlers();
     }
 
@@ -142,15 +142,15 @@ public class WelcomeDialogWindowController extends TemplatesBaseWindowController
     }
 
     private void fireOpenRecentProject(ActionEvent event, String projectPath) {
-        sceneBuilderApp.handleOpenFilesAction(Arrays.asList(projectPath));
+        martianApp.handleOpenFilesAction(Arrays.asList(projectPath));
         getStage().hide();
     }
 
     @FXML
     private void openDocument() {
         // Right now there is only one window open by default
-        DocumentWindowController documentWC = sceneBuilderApp.getDocumentWindowControllers().get(0);
-        sceneBuilderApp.performControlAction(SceneBuilderApp.ApplicationControlAction.OPEN_FILE, documentWC);
+        DocumentWindowController documentWC = martianApp.getDocumentWindowControllers().get(0);
+        martianApp.performControlAction(MartianApp.ApplicationControlAction.OPEN_FILE, documentWC);
         getStage().hide();
     }
 }
