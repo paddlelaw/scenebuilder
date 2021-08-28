@@ -406,6 +406,8 @@ public class MenuBarController {
     @FXML
     private MenuItem aboutMenuItem;
     @FXML
+    private MenuItem registerMenuItem;
+    @FXML
     private MenuItem checkUpdatesMenuItem;
 
     private static final KeyCombination.Modifier modifier;
@@ -616,6 +618,7 @@ public class MenuBarController {
         assert helpMenuItem != null;
         assert aboutMenuItem != null;
         assert checkUpdatesMenuItem != null;
+        assert registerMenuItem != null;
 
         /* 
          * To make MenuBar.fxml editable with SB 1.1, the menu bar is enclosed
@@ -1113,8 +1116,10 @@ public class MenuBarController {
         /*
          * Help menu
          */
+        registerMenuItem.setUserData(new ApplicationControlActionController(ApplicationControlAction.REGISTER));
         aboutMenuItem.setUserData(new ApplicationControlActionController(ApplicationControlAction.ABOUT));
         helpMenuItem.setUserData(new DocumentControlActionController(DocumentControlAction.HELP));
+
         helpMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.F1));
         checkUpdatesMenuItem.setUserData(new ApplicationControlActionController(ApplicationControlAction.CHECK_UPDATES));
 

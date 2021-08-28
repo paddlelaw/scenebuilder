@@ -33,21 +33,13 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<GridPane fx:id="vbox" alignment="CENTER" hgap="10" style="-fx-background-color: white;" styleClass="theme-presets" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="vbox" alignment="CENTER" hgap="10" style="-fx-background-color: white;" styleClass="theme-presets" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <ImageView onMousePressed="#onMousePressed" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.vgrow="NEVER">
-      <image>
-        <Image preserveRatio="true" smooth="true" url="@../SB_Logo.png" />
-      </image>
-    </ImageView>
     <ImageView onMousePressed="#onMousePressed" pickOnBounds="true" GridPane.columnIndex="0" GridPane.vgrow="NEVER">
       <image>
         <Image preserveRatio="true" smooth="true" url="@scenebuilder-logo.png" />
